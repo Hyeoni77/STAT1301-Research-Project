@@ -15,29 +15,29 @@
 
 \section{Introduction}
 
-The presence of Nitrogen (N) and Phosphorous (P) in fertilisers is known to promote the growth of plants as it is essential for the photosynthesis process. 
+The presence of Nitrogen (N) and Phosphorous (P) in fertilisers is known to promote the growth of plants as it is essential for the photosynthesis process \parencite{LI2019e00663}. 
 However, it is possible that when used in combination, N and P could possibly interact in a way that affects the absorption of each nutrient and hence the optimal levels of each in the fertiliser.
 
 There are currently no studies researching this in the context of \textit{The Islands}.
 Given the impact that agriculture has on the availability and supply of food, this test is important in order to learn what the optimal levels are for growth. This will allow for the increase in the output of plant-based food and materials.
 
 By conducting this statistical experiment, we first aim to confirm the relationship between N and P levels in fertiliser with crop yield.
-Then, we will test for a relationship between the levels of each chemical with the optimal level of the other.
+Then, we will also test for a relationship between the levels of each chemical with the optimal level of the other.
 
 \section{Methods}
 
 \textit{The Islands} are made up of three separate islands, with each containing a "field station".
 Each field station is divided into 36 individual plots, where the levels of N and P each plot can be controlled individually of others.
+This experimental study was conducted on 3 field stations, one on each island, giving a sample size of 108.
 
-We tested a range of different levels of N and P in the fertilisers (None, Medium, High) for a total of 9 distinct options.
-Each option was tested on a sample size of 12 plots and without further intervention, the total crop yield for each plot was measured after 2 days.
+We tested three different levels of N and P in the fertilisers (None, Medium, High) for a total of 9 distinct combinations.
+Each combination was tested on 4 plots on each island, for a total of 12 replications and without further intervention, the total crop yield for each plot was measured after 2 days.
 
 \subsection{Statistical Model}
 
 The statistical model used for analysis was a two-factor analysis of variance (ANOVA).
 The model tests how a response variable is affected by two different factors.
-For this context, the two factors are the Nitrogen level and Phosphate level, with the crop yield being the response variable.
-Both factors have 3 levels; None, Medium, and High.\\
+For this context, the two factors are the N level and P level, with the crop yield being the response variable. \\
 Let the \((i,j)\)th level be the group with the \(i\)th nitrogen level and \(j\)th phosphate level, where \(1 \leq i,j \leq 3\).
 Let \(Y_{ijk}\) be the crop yield of the \(k\)th observation within the \((i,j)\)th level.
 Then the mathematical model is
@@ -65,13 +65,6 @@ Note this study observes crop yield based on different levels of nitrogen and ph
 That is, the study observes how a response variable is affected by two factors.
 Therefore the two-way ANOVA model is appropriate for this study.
 
-This model is based of the following assumptions:
-\begin{itemize}
-    \item The observations are independent from each other
-    \item The residuals are normally distributed
-    \item The residuals share equal variance
-\end{itemize}
-
 \subsection{Hypotheses}
 
 Let $H^i_0$ denote the $i^\text{th}$ null hypothesis and $H^i_1$ denote the $i^\text{th}$ alternative hypothesis.
@@ -83,7 +76,7 @@ The set of hypotheses for this experiment are
     \item $H^2_0: \forall i, \beta_j = 0$
     \item $H^2_1: \exists j$ such that $\beta_j \neq 0$
     \item $H^3_0: \forall i, j, \gamma_{ij} = 0$
-    \item $H^3_1: \exists i,j$ such that $\gamma_{ij} = 0$.
+    \item $H^3_1: \exists i,j$ such that $\gamma_{ij} \neq 0$.
 \end{itemize}
 
 \newpage
@@ -109,13 +102,13 @@ The set of hypotheses for this experiment are
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=0.8\linewidth]{Figures/Interaction Plot (Nitrogenous).png}
+    \includegraphics[width=\linewidth]{Figures/Interaction Plot (Nitrogenous).png}
     \caption{Interaction Plot (Nitrogenous)}
 \end{figure}
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=0.8\linewidth]{Figures/Interaction Plot (Phosphatic).png}
+    \includegraphics[width=\linewidth]{Figures/Interaction Plot (Phosphatic).png}
     \caption{Interaction Plot (Phosphatic)}
 \end{figure}
 
@@ -145,7 +138,7 @@ Hence, the evidence is not strong enough and we fail to reject $H^3_0$.
 
 This is also supported by the interaction plots for N and P in Figures 1 and 2 respectively.
 Both plots show that there is little to no variation in the gradient between the different levels of the other nutrient.
-Therefore, the visual evidence supports the decision to fail to reject $H_0$ based on this test.
+Therefore, the visual evidence supports the decision to fail to reject $H^3_0$ based on this test.
 
 By using a two way ANOVA test statistic for this experiment, we assumed that
 $\epsilon_{ijk}$ are independent and normally distributed around 0.
@@ -154,8 +147,7 @@ Also, Figure 4 visually confirms the assumption of being normally distributed. T
 
 \subsection{Limitations}
 
-There are some limitations with the experiment we conducted.
-Firstly, the crops were only given two days to grow due to the time constraints of the experiment.
+A limitation with this experiment is that the crops were only given two days to grow due to time constraints.
 This possibly means that the crops did not have enough time to fully grow before they were harvested, which would affect the validity of the data collection.
 This is due to the possibility of an interaction between N and P occurring after 2 days.
 In a future experiment, the growth of crops could be measured in intervals over a longer time span to see how the two chemicals interact over some longer time span.
@@ -188,4 +180,17 @@ However, based on the collected data, there wasn't enough evidence to reject $H^
     \end{tabular}
 \end{table}
 
+No AI was used in the making of this report.\\
+Links to document version history:\\
+\hspace*{1em} \url{https://github.com/Hyeoni77/STAT1301-Research-Project}
+
+\newpage
+
+Screenshots of Overleaf History:
+\begin{figure}[ht]
+    \includegraphics[width=0.08\linewidth]{History/History 1.png}
+    \includegraphics[width=0.08\linewidth]{History/History 2.png}
+    \includegraphics[width=0.08\linewidth]{History/History 3.png}
+    \includegraphics[width=0.08\linewidth]{History/History 4.png}
+\end{figure}
 \end{document}
