@@ -14,42 +14,83 @@
 \maketitle
 
 \section{Introduction}
+
 The presence of Nitrogen (N) and Phosphorous (P) in fertilisers is known to promote the growth of plants as it is essential for the photosynthesis process. 
 However, it is possible that when used in combination, N and P could possibly interact in a way that affects the absorption of each nutrient and hence the optimal levels of each in the fertiliser.
+
+There are currently no studies researching this in the context of \textit{The Islands}.
+Given the impact that agriculture has on the availability and supply of food, this test is important in order to learn what the optimal levels are for growth. This will allow for the increase in the output of plant-based food and materials.
+
 By conducting this statistical experiment, we first aim to confirm the relationship between N and P levels in fertiliser with crop yield.
 Then, we will test for a relationship between the levels of each chemical with the optimal level of the other.
-The null hypothesis ($H_0$) for this experiment will be that there is no relationship between the two variables and the total crop yield.
-\begin{itemize}
-    \item criteria sheet says to talk about why the study is interesting. i might've messed up by picking plants, sorry about that. good luck
-    \item also the introduction should probably have some references. looking at examples, we should probably include something about nitrogenous and phosphatic fertilisers and what we already know about how they affect crop yield.
-\end{itemize}
-
 
 \section{Methods}
+
 \textit{The Islands} are made up of three separate islands, with each containing a "field station".
 Each field station is divided into 36 individual plots, where the levels of N and P each plot can be controlled individually of others.
+
 We tested a range of different levels of N and P in the fertilisers (None, Medium, High) for a total of 9 distinct options.
 Each option was tested on a sample size of 12 plots and without further intervention, the total crop yield for each plot was measured after 2 days.
-While the actual quantity of each level of the chemicals is unknown, it was assumed that the proportions of the quantity between each level is linear in that 'High - Medium' = 'Medium - Low' and 'High $>$ Medium $>$ Low'.
 
-The purpose of this experimental study determine whether
-\begin{itemize}
-    \item the level of nitrogenous fertiliser affects crop yield
-    \item the level of phosphatic fertiliser affects crop yield
-    \item an interaction effect between the level of nitrogenous and phosphatic fertiliser affects crop yield
-\end{itemize}
-The Island consist of 3 islands, with each island having a field station.
-Each field station is divided into 36 different plots.
-Each p different levels of nitrogenous and phosphatic fertilisers.
-2 days after
 \subsection{Statistical Model}
-The statistical model used for this study will be a two-factor ANOVA model.
 
-\subsection{Hypothesises}
-Our null hypothesis \(H_0\) will be
+The statistical model used for analysis was a two-factor analysis of variance (ANOVA).
+The model tests how a response variable is affected by two different factors.
+For this context, the two factors are the Nitrogen level and Phosphate level, with the crop yield being the response variable.
+Both factors have 3 levels; None, Medium, and High.\\
+Let the \((i,j)\)th level be the group with the \(i\)th nitrogen level and \(j\)th phosphate level, where \(1 \leq i,j \leq 3\).
+Let \(Y_{ijk}\) be the crop yield of the \(k\)th observation within the \((i,j)\)th level.
+Then the mathematical model is
+\[
+    Y_{ijk} = \mu + \alpha_i + \beta_j + \gamma_{ij} + \epsilon_{ijk},\, 1 \leq i \leq 3,\, 1 \leq j \leq 3,\, 1 \leq k \leq 12
+\]
+where:
+\begin{itemize}
+    \item \(\mu\) is the overall mean yield,
+    \item \(\alpha_i\) is the effect of the \(i\)th nitrogen level,
+    \item \(\beta_j\) is the effect of the \(j\)th phosphate level,
+    \item \(\gamma_{ij}\) is the interaction effect of the \((i,j)\)th level,
+    \item \(\epsilon_{ijk}\) is the random error of the \(k\)th observation of the \((i,j)\)th level.
+\end{itemize}
+
+\vspace{2em}
+
+\subsection{Assumptions}
+
+This model assumes that the error of all observations are independent from each other, normally distributed, and share equal variance.
+
+In other words, $\forall i, j, k, \epsilon_{ijk} \overset{\text{iid}}{\sim} \mathcal{N}(0, \sigma^2)$ for some variance $\sigma^2$.
+
+Note this study observes crop yield based on different levels of nitrogen and phosphate in the fertiliser.
+That is, the study observes how a response variable is affected by two factors.
+Therefore the two-way ANOVA model is appropriate for this study.
+
+This model is based of the following assumptions:
+\begin{itemize}
+    \item The observations are independent from each other
+    \item The residuals are normally distributed
+    \item The residuals share equal variance
+\end{itemize}
+
+\subsection{Hypotheses}
+
+Let $H^i_0$ denote the $i^\text{th}$ null hypothesis and $H^i_1$ denote the $i^\text{th}$ alternative hypothesis.
+The set of hypotheses for this experiment are
+\vspace{0.5em}
+\begin{itemize}\setlength{\itemsep}{0.5em}
+    \item $H^1_0: \forall i, \alpha_i = 0$
+    \item $H^1_1: \exists i$ such that $\alpha_i \neq 0$
+    \item $H^2_0: \forall i, \beta_j = 0$
+    \item $H^2_1: \exists j$ such that $\beta_j \neq 0$
+    \item $H^3_0: \forall i, j, \gamma_{ij} = 0$
+    \item $H^3_1: \exists i,j$ such that $\gamma_{ij} = 0$.
+\end{itemize}
+
+\newpage
 
 \section{Results}
-\begin{figure}[ht]
+
+\begin{table}[ht]
     \centering
     \caption{Summary of Data}
     \begin{tabular}{c|c|c|c|c}
@@ -64,9 +105,77 @@ Our null hypothesis \(H_0\) will be
          High & Medium & 36.42 & 2.54 & 12\\
          High & High & 37.83 & 2.72 & 12
     \end{tabular}
-\end{figure}
-\vspace{3em}
+\end{table}
+
 \begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Figures/Interaction Plot (Nitrogenous).png}
+    \caption{Interaction Plot (Nitrogenous)}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Figures/Interaction Plot (Phosphatic).png}
+    \caption{Interaction Plot (Phosphatic)}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Figures/Residual vs Fitted.png}
+    \caption{Residuals vs Fitted Values Plot}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Figures/Q-Q Plot.png}
+    \caption{Normal Q-Q Plot}
+\end{figure}
+
+
+\section{Discussion}
+
+Table 2 shows the results from conducting an ANOVA test on the data in R.
+The $p$-values corresponding to the effect of N and P individually on crop yield is less than 2e-16.
+This is far less than the required significance level of $0.05$, so can therefore reject $H^1_0$ and $H^2_0$.
+This confirms that the results from previous studies about these chemicals individually do hold true in the context of \textit{The Islands}.
+
+However, we observe that the ANOVA test for the interaction between N and P resulted in a $p$-value of 0.7537.
+This is greater than the required significance level of 0.05.
+Hence, the evidence is not strong enough and we fail to reject $H^3_0$.
+
+This is also supported by the interaction plots for N and P in Figures 1 and 2 respectively.
+Both plots show that there is little to no variation in the gradient between the different levels of the other nutrient.
+Therefore, the visual evidence supports the decision to fail to reject $H_0$ based on this test.
+
+By using a two way ANOVA test statistic for this experiment, we assumed that
+$\epsilon_{ijk}$ are independent and normally distributed around 0.
+Figure 3 clearly shows visually that the mean for this distribution was 0.
+Also, Figure 4 visually confirms the assumption of being normally distributed. Therefore, this assumption was valid and is supported by the experimental data.
+
+\subsection{Limitations}
+
+There are some limitations with the experiment we conducted.
+Firstly, the crops were only given two days to grow due to the time constraints of the experiment.
+This possibly means that the crops did not have enough time to fully grow before they were harvested, which would affect the validity of the data collection.
+This is due to the possibility of an interaction between N and P occurring after 2 days.
+In a future experiment, the growth of crops could be measured in intervals over a longer time span to see how the two chemicals interact over some longer time span.
+
+\section{Conclusion}
+
+This statistical experiment aimed to investigate the effect of N and P on expected crop yield as well as the interaction between them.
+After collecting data and performing a two-factor ANOVA test, we rejected $H^1_0$ and $H^2_0$ confirmed the individual relationships between N and P and crop yield.
+However, based on the collected data, there wasn't enough evidence to reject $H^3_0$ and hence we could not confirm any interaction between the two chemicals.
+
+
+\newpage
+
+\printbibliography
+
+\newpage
+
+\appendix
+
+\begin{table}[ht]
     \centering
     \caption{Two-factor ANOVA table}
     \begin{tabular}{cccccc}
@@ -77,36 +186,6 @@ Our null hypothesis \(H_0\) will be
     Interaction & 4 & 11.72 & 2.93 & 0.4756 & 0.7535\\
     Error & 99 & 610.00 & 6.16\\ \hline
     \end{tabular}
-\end{figure}
+\end{table}
 
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=0.8\linewidth]{Figures/Interaction Plot (Nitrogenous).png}
-    \caption{Interaction Plot (Nitrogenous)}
-\end{figure}
-
-\begin{figure}[ht]
-    \centering
-    \caption{Interaction Plot (Phosphatic)}
-    \includegraphics[width=0.8\linewidth]{Figures/Interaction Plot (Phosphatic).png}
-\end{figure}
-
-
-\section{Discussion}
-\begin{itemize}
-    \item p values are significant for nitrogenous and phosphatic, but not for interaction
-    \item should reject null hypothesis for nitrogenous and phosphatic, fail to reject interaction null hypothesis
-    \item both interaction plots show little variation in gradient between the different coloured lines, visual evidence of little interaction effect
-    \item need limitations: could talk about harvesting plants after 2 days, maybe too short due to time constraints (real reason is didnt know if they would keep growing btw). maybe an interaction couldve occured over long term?
-    \item any other limitations
-\end{itemize}
-
-\section{Conclusion}
-\begin{itemize}
-    \item can summarise results if want, this section might not be needed though
-\end{itemize}
-
-\newpage
-
-\printbibliography
 \end{document}
